@@ -1,0 +1,48 @@
+<style>
+table tr td {
+	border: 1px solid black;
+}
+
+p {
+	padding: 0;
+	margin: 5px;
+}
+</style>
+<table style="border-collapse: collapse; width: 100%;">
+	<tbody>
+		<tr>
+			<td colspan="2"
+				style="border: 1px solid black; padding: 25px; width: 50%;">
+				<p>Seller:</p>
+				<p th:text="${invoice.seller}"></p>
+				<p th:text="${invoice.sellerAddress}"></p>
+				<p th:text="${invoice.sellerGstin}"></p>
+			</td>
+			<td colspan="2"
+				style="border: 1px solid black; padding: 25px; width: 50%;">
+				<p>Buyer:</p>
+				<p th:text="${invoice.buyer}"></p>
+				<p th:text="${invoice.buyerAddress}"></p>
+				<p th:text="${invoice.buyerGstin}"></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; height: 35px;">Item</td>
+			<td style="text-align: center; height: 35px;">Quantity</td>
+			<td style="text-align: center; height: 35px;">Rate</td>
+			<td style="text-align: center; height: 35px;">Amount</td>
+		</tr>
+
+		<tr th:each="item : ${invoice.items}">
+			<td th:text="${item.name}" style="text-align: center; height: 35px;"></td>
+			<td th:text="${item.quantity}"
+				style="text-align: center; height: 35px;"></td>
+			<td th:text="${item.rate}" style="text-align: center; height: 35px;"></td>
+			<td th:text="${item.amount}"
+				style="text-align: center; height: 35px;"></td>
+		</tr>
+		<tr>
+			<td colspan="4" style="text-align: center; height: 35px;">-</td>
+		</tr>
+	</tbody>
+</table>
